@@ -100,12 +100,17 @@ exports.getSingleProduct = async (req, res, next) => {
 };
 exports.getProducts = async (req,res,next)=>{
     try{
-        const resultPerPage = 10;
+        const num_page=2
+        if (req.query && req.query.page){
+            console.log(req.query.page)
+            const num_page=req.query.page;
+        }
+        const resultPerPage = num_page ;
         const productCount = await Product.countDocuments();
 
         const apiFeatures  = new APIFeatures(Product.find(),req.query)
                                             .search().filter().pagination(resultPerPage);
-
+        console.log(apiFeatures)
         const products = await apiFeatures.query;
         res.status (200).json({
             success:true,
