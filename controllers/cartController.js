@@ -48,3 +48,23 @@ exports.addUserCart =async (req,res,next)=>{
         next(error)
     }
 }
+exports.getUserCart = async (req,res,next)=>{
+    try{
+        const userId=req.user._id;
+        const cart = await Cart.findOne({user:userId}).populate("items.product","name price stock images");
+        if(!cart){
+            return res.status(200).json({ 
+                success: true, 
+                message: "Cart is empty.",
+                cart: { items: [] } 
+            });
+    }
+    res.status(200).json({
+            success: true,
+            cart
+        });
+
+    } catch (error) {
+        next(error); 
+    }
+}
