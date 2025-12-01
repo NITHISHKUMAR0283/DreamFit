@@ -1,5 +1,5 @@
 const Product = require( '../models/Products');
-
+const APIFeatures = require("../utils/APIFeatures")
 exports.createNewProduct= async (req,res,next) =>{
     try{
         const {name,price,description,image,stock}=req.body;
@@ -96,5 +96,24 @@ exports.getSingleProduct = async (req, res, next) => {
         res.status(200).json({ success: true, product });
     } catch (error) {
         next(error); 
+    }
+};
+exports.getProducts = async (req,res,next)=>{
+    try{
+        const resultPerPage = 10;
+        const productCount = await Product.countDocuments();
+
+        const apiFeatures  = new APIFeatures(Product.find(),req.query)
+                                            .search().filter().pagination(resultPerPage);
+
+        const products = await apiFeatures.query;
+        res.status (200).json({
+            success:true,
+            productCount:productCount,
+            products,
+        }
+        );    
+    }catch(error){
+        next(error);
     }
 };
