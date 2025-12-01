@@ -13,7 +13,7 @@ exports.addUserCart =async (req,res,next)=>{
         const item ={
             product:productId,
             name :product.name,
-            image:product.images[0].url || 'placeholder.jpg',
+            image:product.images|| 'placeholder.jpg',
             price:product.price,
             quantity:quantity
         }
@@ -32,9 +32,10 @@ exports.addUserCart =async (req,res,next)=>{
         const isItemExist = cart.items.findIndex(i=>i.product.toString() === productId);
         if(isItemExist>-1){
             cart.item[isItemExist].quantity+=1
+            cart.markModified('items')
         }
         else{
-            cart.item.push(item);
+            cart.items.push(item);
         }
     }
     await cart.save();
