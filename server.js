@@ -14,7 +14,7 @@ app.set('query parser', str => qs.parse(str));
 app.use(helmet())
 connectDB();
 const cors = require('cors');
-app.use(cors({origin:'http://localhost:3000',credentials:true,}))
+app.use(cors({origin:'http://localhost:5173',credentials:true,}))
 app.use(express.json());
 app.use("/api/v1",productRoutes);
 app.use("/api/v1/auth",authRoutes);

@@ -100,7 +100,7 @@ exports.getSingleProduct = async (req, res, next) => {
 };
 exports.getProducts = async (req,res,next)=>{
     try{
-        const num_page=2
+        const num_page=20
         if (req.query && req.query.page){
             console.log(req.query.page)
             const num_page=req.query.page;

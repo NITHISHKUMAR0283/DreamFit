@@ -1,19 +1,15 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import LoginForm from './components/LoginForm'
+
+
+import LoginPage from './components/LoginPage';
 
 function App() {
   return (
-    <div>
-      <h1>Login page</h1>
-   
-
-      <LoginForm/>
+    
+    <div className="App">
+      
+      <LoginPage/>
     </div>
-  );}
+  )
+}
 
-
-
-export default App
+export default App;
