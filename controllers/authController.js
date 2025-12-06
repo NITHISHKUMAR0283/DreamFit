@@ -35,7 +35,7 @@ exports.loginUser = async (req,res,next) => {
         const token = user.getJwtToken();
         res.status(200).json({
             success:true,token,
-            user:{ id :user._id,name:user.name,email:user.email}
+            user:{ id :user._id,role:user.role,email:user.email}
         });
     }catch (error){
         console.log(`${error}`);
