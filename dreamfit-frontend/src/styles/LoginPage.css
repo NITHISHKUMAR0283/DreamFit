@@ -43,6 +43,9 @@
     justify-content: center;
     align-items: center;    
 }
+.product-cart{
+    background-color: beige;
+}
 h2{
     margin:0px;
     margin-bottom: 40px;
