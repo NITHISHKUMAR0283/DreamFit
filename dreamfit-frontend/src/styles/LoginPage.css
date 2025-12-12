@@ -43,30 +43,3 @@
     justify-content: center;
     align-items: center;    
 }
-.product-cart{
-    background-color: beige;
-}
-h2{
-    margin:0px;
-    margin-bottom: 40px;
-}
-.password-wrapper{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    position: relative;
-}
-.password-wrapper input{
-    width: 75%;  
-    position: relative;    
-    
-}
-.toggle-eye{
-    position: absolute;
-    right:  50px;
-    top: 50%;
-    transform: translateY(-50%);
-
-   
-
-}

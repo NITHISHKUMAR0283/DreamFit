@@ -53,13 +53,13 @@ const Dashboard = () => {
             </div>
             <hr className="line"/>
             <div className="Product-list-container">
-                <h2>product Catelog</h2>
                 <div className="Product-grid">
                     {products.map(product=>(
                         <div key={product._id} className="product-cart">
-                        <h3>{product.name}</h3>
-                        <p>Price: ${product.price}</p>
-                        <img src={product?.image} alt="image"/>
+                            
+                        <img src={product?.image} alt="product-image"/>
+                        <p1>{product.name}</p1>
+                        <p2>₹{product.price}</p2>
                         </div>
                     ))}
                 </div>
